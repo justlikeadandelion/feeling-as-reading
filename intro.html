@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening</title>
+
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html {
+        height: 100%;
+    }
+    body {
+        height: 180%;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    @font-face {
+    font-family: CompagnonRoman;
+    src: url(Compagnon-Roman.woff);
+}
+    .pages {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        /* bottom: 5px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        /* align-items: flex-end; */
+        position: fixed;
+        overflow-y: hidden;
+    }
+    .page {
+        --scrollAngle: 0deg;
+
+        background-color: black;
+        width: 50%;
+        height: 10px;
+        position: absolute;
+        transform: rotate(var(--scrollAngle));
+        transform-origin: bottom right;
+    }
+    /* .page:nth-child(1),  .page:nth-child(2) {
+        background-color: rgb(255, 0, 0);
+        z-index: 2;
+    } */
+    .bookButton {
+        background-color: brown;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        height: 10%;
+        width: 33%;
+        opacity: 0;
+        transform: rotate(-5deg);
+        transform-origin: bottom left;
+        transition: opacity .2s ease-out;
+        display: flex;
+        align-items: center;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        transition: 0.3s;
+    }
+    .bookButton:hover {
+        background-color: rgba(222, 221, 164, 0);
+        border: 2px solid brown;
+    }
+    .bookButton:hover .textInBrown {
+        color: brown;
+    }
+    /* .startButton {
+        position: absolute;
+        inset: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        opacity: 0;
+        display: none;
+    } */
+    .textAll {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-around;
+    }
+    .text {
+        font-family: "CompagnonRoman";
+        font-size: 16pt;
+        text-align: center;
+        opacity: 0;
+    }
+    .textInBrown {
+        font-family: "CompagnonRoman";
+        font-size: 16pt;
+        text-align: center;
+        color: white;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="pages">
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+    </div>
+    <div class="textAll">
+        <div class="text">Hi,</div>
+        <div class="text">I'm a book in your hand,</div>
+        <div class="text">and I have something to tell you,</div>
+        <div class="text">just like I always do.</div>
+        <div class="text"> </div>
+        <div class="text">Today it will be a bit different</div>
+        <div class="text">as the story is not written on my pages,</div>
+        <div class="text">but instead felt by you.</div>
+    </div>
+    <div class="bookButton">
+        <a href="index.html" class="textInBrown"> pick a book, hold it in your hands, and begin.</a>
+        <!-- <button type="button" class="startButton"></button> -->
+    </div>
+
+    <script>
+        function adjustAngle() {
+            // scroll bar positions
+            // console.log (window.scrollY);
+            let scrollTop = window.scrollY;
+            // offsetHeight=viewable height innerHeight=current window's content area
+            let scrollHeight = document.body.offsetHeight - window.innerHeight;
+            let innerHeight = window.innerHeight;
+            // var scrollPercentage = scrollTop / scrollHeight;
+            let scrollPercentage = scrollTop / innerHeight;
+
+            let page = document.querySelector(".page");
+            let pageAll = document.querySelectorAll(".page");
+                
+            // pageAll.forEach(page => {
+            //     page.style.setProperty("--scrollAngle", (scrollPercentage * 180) + "deg")
+            // });
+
+            // page.style.setProperty("--scrollAngle", (scrollPercentage * 180) + "deg");
+
+            for (let i = 0; i < 15; i++) {
+                pageAll[i+1].style.setProperty("--scrollAngle", ((scrollPercentage * 180) - (i*10)) + "deg");
+            }
+            // console.log (scrollPercentage);
+            // console.log (scrollTop, scrollHeight);
+
+            //brown botton
+            let bookButton = document.querySelector(".bookButton");
+            let textInBrown = document.querySelector(".textInBrown");
+            if (scrollTop == scrollHeight) {
+                bookButton.style.opacity = "1";
+                textInBrown.style.display = "block";
+            } else {
+                bookButton.style.opacity = "0";
+                textInBrown.style.display = "none";
+            }
+
+            let textAll = document.querySelectorAll(".text");
+            let scrollProportion = scrollTop / scrollHeight;
+            let roundedValue = Math.floor( scrollProportion *50 / 6 );
+            console.log (roundedValue)
+            textAll.forEach(text => {
+                text.style.opacity = "0";
+            });
+            if (roundedValue >= 0 && roundedValue < textAll.length) {
+                textAll[roundedValue].style.opacity = "1";
+            }
+            // if (scrollProportion <= roundedValue){
+            //     textAll[roundedValue].style.opacity = "1";
+            // } else {
+            //     textAll[roundedValue].style.opacity = "0";
+            // }
+        }
+        window.addEventListener ("scroll", adjustAngle);
+        </script>
+
+</body>
+
+</html>

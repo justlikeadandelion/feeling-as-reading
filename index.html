@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reading</title>
+
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+    <div class="triangleContainer">
+        <div class="triangle" onclick="openCollection()"></div>
+    </div>
+
+    <div class="collectionBg">
+        <div class="collections"></div>
+        <div class="collections">
+            <div class="collectionRight" onclick="flipP9()">
+                <div class="text" id="P9"></div>
+            </div>
+            <div class="collectionRight" onclick="flipP8()">
+                <div class="text_P">6</div>
+                <div class="text" id="P8"></div>
+            </div>
+            <div class="collectionRight" onclick="flipP7()">
+                <div class="text_P">5</div>
+                <div class="text" id="P7"></div>
+            </div>
+            <div class="collectionRight" onclick="flipP6()">
+                <div class="text_P">3</div>
+                <div class="text" id="P6_1"></div>
+                <div id="P6_color"></div>
+                <div class="text" id="P6_2"></div>
+            </div>
+            <div class="collectionRight" onclick="flipP5()">
+                <div class="text_P">4</div>
+                <div class="text" id="P5"></div>
+            </div>
+            <div class="collectionRight" onclick="flipP4()">
+                <div class="text_P">2</div>
+                <div class="text" id="P4"></div>
+            </div>
+            <div class="collectionRight" onclick="flipP3()">
+                <div class="text_P">7</div>
+                <div class="text" id="P3"></div>
+            </div>
+            <div class="collectionRight" onclick="flipP2()">
+                <div class="text_P">2</div>
+                <div class="text" id="P2"></div>
+            </div>
+            <div class="collectionRight" onclick="flipP1()">
+                <div class="text_P">1</div>
+                <div class="text" id="P1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="resultPage_transparentBox">
+        <input type="checkbox"/>
+        <div class="resultPage">
+            <div class="Q1_result"></div>
+        </div>
+    </div> -->
+
+    <div class="columns">
+
+        <!-- Q1 -->
+        <div class="column">
+            <div class="content">
+                <div class="text">
+                    <p>laying itself on your hand, fitting its spine on your palm, being wrapped by your arm, what is the weight of your book?</p>
+                </div>
+                <div class="text">
+                    <span id="sliderResult">hold the hand and slide to see!</span>
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                </div>
+            </div>
+
+            <div class="titlebar">
+                <div class="text">1</div>
+                <input type="radio" name="columnPages"/>
+                <!-- <button class="button01">submit</button> -->
+            </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="column">
+
+            <div class="content">
+                <div class="Q2_content_left">
+                    <div class="text">
+                        <span>instructions on how to measure the book!</span> <br><br>
+                        <img src="images/Q2_01.png" style="width: 40%; border: solid;"/><br><br>
+                        <img src="images/Q2_02.png" style="width: 40%; border: solid;"/><br><br>
+                        <img src="images/Q2_03.png" style="width: 40%; border: solid;"/><br><br>
+                        <span>() = 1 unit knuckle<br>()() = 2 unit knuckles<br>()()() = 3 unit knuckles<br>.<br>.<br>.<br></span>
+                    </div>
+                </div>
+                <div class="Q2_content_right">
+                    <div class="text">
+                        <span>the book has...</span><br><br>
+                        <label for="bookWidth">the width of</label>
+                        <input type="number" name="bookWidth" class="bookWidthInput" id="bookWidthInput" placeholder="7" width="4">
+
+                        <label for="bookHeight">unit knuckle(s), the height of</label>
+                        <input type="number" name="bookHeight" class="bookHeightInput" id="bookHeightInput" placeholder="4" >
+
+                        <label for="bookThickness">unit knuckle(s) and the thickness of</label>
+                        <input type="number" name="bookThickness" class="bookThicknessInput" id="bookThicknessInput" placeholder="8">
+                        <span>unit knuckle(s)</span>
+                    </div>
+                    <div class="bookMeasurementNumbersAll">
+                        <div class="bookMeasurementNumbers" id="bookMeasurementWidth">()..</div>
+                        <div class="bookMeasurementNumbers" id="bookMeasurementHeight">()..</div>
+                        <div class="bookMeasurementNumbers" id="bookMeasurementThickness">()..</div>
+                    </div>
+                    <div class="bookMeasurementAll">
+                        <div class="bookMeasurement"></div>
+                        <div class="bookMeasurement"></div>
+                        <div class="bookMeasurement"></div>
+                        <div class="bookMeasurement"></div>
+                        <div class="bookMeasurement"></div>
+                        <div class="bookMeasurement"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="titlebar">
+                <div class="text">2</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="column">
+            <div class="content">
+                <div class="paperColor">
+                    <div class="Q3_slidecontainer">
+                        <input type="range" min="1" max="360" value="50" class="Q3_slider" id="Q3_rangeH">
+                    </div>
+                    <div class="Q3_slidecontainer">
+                        <input type="range" min="1" max="100" value="50" class="Q3_slider" id="Q3_rangeS">
+                    </div>
+                    <div class="Q3_slidecontainer">
+                        <input type="range" min="1" max="100" value="50" class="Q3_slider" id="Q3_rangeL">
+                    </div>
+                    <div class="text">what is the paper color?</div>
+                </div>
+            </div>
+            <div class="titlebar">
+                <div class="text">3</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="column">
+            <div class="content">
+                <div class="text">how do you feel when the book lies flat on your palm?</div>
+                <svg class="svgForCurve">
+                    <path id="curveLine" d="M 10 600 q 240 20 480 0"/>
+                </svg>
+                <div class="Q4_slidecontainer">
+                    <input type="range" min="-800" max="100" value="-20" class="Q4_slider" id="Q4_rangeCurveHeight">
+                </div>
+            </div>
+            <div class="titlebar">
+                <div class="text">4</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="column">
+            <div class="content">
+                <div class="paperTexture">
+                    <div class="Q5_slidecontainer">
+                        <input type="range" min="0" max="50" value="25" class="Q5_slider" id="Q5_range_transparent01">
+                    </div>
+                    <div class="Q5_slidecontainer">
+                        <input type="range" min="0" max="100" value="50" class="Q5_slider" id="Q5_range_black">
+                    </div>
+                    <div class="Q5_slidecontainer">
+                        <input type="range" min="0" max="100" value="50" class="Q5_slider" id="Q5_range_transparent02">
+                    </div>
+                    <div class="Q5_slidecontainer">
+                        <input type="range" min="1" max="1000" value="50" class="Q5_slider" id="Q5_range_bgSize">
+                    </div>
+                    <div class="Q5_slidecontainer">
+                        <input type="range" min="1" max="3" value="50" class="Q5_slider" id="Q5_range_gradient">
+                    </div>
+                    <div class="text">the feeling when the material of the book touches your hand, when your fingers move through the pages, what does it feel like?</div>
+                </div>
+            </div>
+            <div class="titlebar">
+                <div class="text">5</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="column">
+            <div class="content">
+                <div class="QflipBg">
+                    <div class="QflipPages"></div>
+                    <div class="QflipPages"></div>
+                </div>
+                <div class="text">how do you flip the book?</div>
+                <div class="QflipPosBg">
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                    <button class="flipPos"></button>
+                </div>
+                <div class="QflipBgFull">
+                    <img src="images/hand_flip_leftColor.png" height="250px">
+                    <img src="images/hand_flip_rightColor.png" height="250px">
+                </div>
+            </div>
+            <div class="titlebar">
+                <div class="text">6</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="column">
+            <div class="content">
+                <div class="Q7_divTop">
+                    <div class="text">get your nose close to the book,</div>
+                    <div class="text">maybe while flipping through the pages.</div>
+                </div>
+                <div class="Q7_divBottom">
+                    <div class="text">
+                        <label for="Q7_input01">the smell takes me to</label>
+                        <input type="text" name="Q7_input" id="Q7_input01" width="4">
+                        <label for="Q7_input02">and makes me think of</label>
+                        <input type="text" name="Q7_input" id="Q7_input02" width="4">
+                        <span>.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="titlebar">
+                <div class="text">7</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div>
+
+        <!-- <div class="column">
+            <div class="content">
+                <div class="text">
+                    Lorem ipsum
+                </div>
+            </div>
+            <div class="titlebar">
+                <div class="text">8</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="content">
+                <div class="text">
+                    Lorem ipsum
+                </div>
+            </div>
+            <div class="titlebar">
+                <div class="text">9</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div> -->
+
+        <!-- <div class="column">
+            <div class="content">
+                <div class="text">
+                    Lorem ipsum
+                </div>
+            </div>
+            <div class="titlebar">
+                <div class="text">10</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="content">
+                <div class="text">
+                    Lorem ipsum
+                </div>
+            </div>
+            <div class="titlebar">
+                <div class="text">11</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="content">
+                <div class="text">
+                    Lorem ipsum
+                </div>
+            </div>
+            <div class="titlebar">
+                <div class="text">12</div>
+                <input type="radio" name="columnPages" />
+            </div>
+        </div> -->
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
