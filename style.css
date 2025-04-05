@@ -1,8 +1,12 @@
+/* * {
+    border: 1px dotted red;
+} */
 html, body {
     height: 100%; /* make it fill the whole window */
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    text-size-adjust: none;
+    overflow: clip;
     /* background-color: rgb(99, 132, 161); */
     /* background-image: url('IMG_0363.png');
     background-size: cover; */
@@ -90,7 +94,7 @@ input {
 .collectionBg .text {
     height: auto;
     font-family: "CompagnonRoman";
-    font-size: 24pt;
+    font-size: 2vw;
     text-align: center;
     background-color: white;
 }
@@ -119,6 +123,8 @@ input {
 .columns {
     width: 100%;
     height: 100%;
+
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -128,7 +134,8 @@ input {
     min-width: .5rem;
     max-width: 100%;
     height: 100%;
-    overflow-y: auto;
+    overflow-x: clip;
+    /* overflow-y: auto; */
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -140,6 +147,7 @@ input {
     /* text-orientation: mixed;
     writing-mode: vertical-rl; */
     /* flex-shrink: 0; */
+    overflow: hidden;
     flex-direction: row;
     justify-content: center;
     align-items: flex-end;
@@ -336,9 +344,15 @@ body:has( .columns .column:nth-child( 6 ) :checked ) > .triangle {
     position: absolute;
     /* to make the checkbox the size of the title bar -> inset 0 */
     inset: 0;
+    width: 100%;
+    height: 100%;
+
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
+
+    border-radius: 0;
+    /* border: 4px dotted pink; */
 
     cursor: pointer;
 }
@@ -372,16 +386,21 @@ body:has( .columns .column:nth-child( 6 ) :checked ) > .triangle {
 .column .content .slidecontainer {
     width: 100%;
 }
+::-webkit-slider-thumb {
+    box-shadow: none;
+}
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 100px;
     height: 100px;
     /* border-radius: 50%; */
+
     background: #ff0000;
     background: url("hand_red.png");
     background-size: contain;
     background-repeat: no-repeat;
+
     cursor: pointer;
 }
 .slider::-moz-range-thumb {
@@ -497,7 +516,7 @@ body:has( .columns .column:nth-child( 6 ) :checked ) > .triangle {
 
 /* Q3 */
 .paperColor {
-    width: 100vw;
+    width: 100dvw;
     height: 100%;
     padding-left: 2rem;
     padding-top: 2rem;
@@ -626,7 +645,7 @@ body:has( .columns .column:nth-child( 6 ) :checked ) > .triangle {
 
 /* Q5 */
 .paperTexture {
-    width: 100vw;
+    width: 100dvw;
     height: 100%;
     padding-left: 25%;
     padding-right: 25%;
